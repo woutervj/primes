@@ -1,0 +1,40 @@
+<html>
+<head>
+	<style type="text/css">
+		td{font-family:"Verdana",Arial,sansserif; font-size: 12px;}
+		input.table{font-family:"Verdana",Arial,sansserif; border-style:none; }
+
+	</style>
+	<script type="text/javascript">JSCLASS_PATH = 'src'</script>
+	<script type="text/javascript" src="src/loader.js"></script>
+	<script type="text/javascript" src="cellular.js"></script>
+	<script type="text/javascript" src="primes.js"></script>
+</head>
+<body>
+
+	<input type="button" value="Priemgetallen" onclick='ca.sieve()'>
+	Breedte: <input type="text" value="20" id='size' onchange="doSquare()">
+
+	<div id="here">
+	</div>
+    <script type="text/javascript">
+
+    
+		var ca;		
+				
+		JS.require('JS.Class', function () { initCell(); initSquare(); doSquare()} );
+		toggle = function () {ca.markMultiples(this.agent.n)}
+
+		function doSquare()
+		{
+			var hr = document.getElementById("here");
+            hr.innerHTML="";
+            var sz = parseInt(document.getElementById("size").value);
+			ca = new PrimeMagicSquare(sz);
+			hr.appendChild(ca.table());
+		}
+    </script>
+		
+
+	
+</body>
